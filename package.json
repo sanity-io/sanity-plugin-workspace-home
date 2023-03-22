@@ -6,6 +6,14 @@
     "sanity",
     "sanity-plugin"
   ],
+  "homepage": "https://github.com/sanity-io/sanity-plugin-workspace-home#readme",
+  "bugs": {
+    "url": "https://github.com/sanity-io/sanity-plugin-workspace-home/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sanity-io/sanity-plugin-workspace-home.git"
+  },
   "license": "MIT",
   "author": "Sanity <hello@sanity.io>",
   "exports": {
