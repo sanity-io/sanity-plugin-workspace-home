@@ -1,5 +1,5 @@
-import {Button, Hotkeys, Stack, Box, Flex, Heading, Card, Text} from '@sanity/ui'
-// import {StarIcon} from '@sanity/icons'
+import {Grid, Button, Hotkeys, Stack, Box, Flex, Card, Text} from '@sanity/ui'
+import {DatabaseIcon} from '@sanity/icons'
 import React, {createElement, isValidElement, useMemo} from 'react'
 import {isValidElementType} from 'react-is'
 import {useActiveWorkspace, WorkspaceSummary} from 'sanity'
@@ -24,10 +24,13 @@ export const MediaCard = styled(Card)`
 export type WorkspacePreviewProps = {
   workspace: WorkspaceSummary
   index: number
+  query: string
 }
 
 export default function WorkspacePreview(props: WorkspacePreviewProps) {
-  const {icon, title, name, subtitle} = props.workspace
+  const {workspace, index, query} = props
+  const {icon, title, name, subtitle, dataset} = workspace
+
   const {setActiveWorkspace} = useActiveWorkspace()
   const iconComponent = useMemo(() => createIcon(icon), [icon])
 
@@ -42,25 +45,45 @@ export default function WorkspacePreview(props: WorkspacePreviewProps) {
   //     localStorage.setItem('favoriteWorkspace', name)
   //   }, [name])
 
+  const hotKeyIndex = index + 1 === 10 ? 0 : index + 1
+
   return (
-    <Card shadow={1} radius={2}>
-      <Flex align="center" gap={[2, 3, 4, 4]} paddingX={[2, 3, 4, 4]}>
-        <Hotkeys keys={[String(props.index + 1)]} padding={2} />
-        <Box flex={1}>
+    <Card borderTop={Boolean(index)} tone="default">
+      <Grid columns={5} gap={[2, 3, 4, 4]} paddingY={1}>
+        <Card columnStart={1} columnEnd={3}>
           <Stack>
             <Button mode="bleed" tone="default" onClick={() => setActiveWorkspace(name)}>
               <Flex align="center" gap={[2, 3, 4, 4]}>
                 {iconComponent ? <MediaCard>{createIcon(iconComponent)}</MediaCard> : null}
                 <Box flex={1}>
                   <Stack space={[1, 2, 3, 3]}>
-                    <Heading>{title || name}</Heading>
+                    <Text size={3} weight="semibold">
+                      {title || name}
+                    </Text>
                     {subtitle ? <Text muted>{subtitle}</Text> : null}
                   </Stack>
                 </Box>
               </Flex>
             </Button>
           </Stack>
-        </Box>
+        </Card>
+        <Card columnStart={3} columnEnd={5}>
+          <Flex height="fill" align="center" gap={2}>
+            <Text size={1} weight="semibold">
+              <DatabaseIcon />
+            </Text>
+            <Text size={1} weight="semibold">
+              {dataset}
+            </Text>
+          </Flex>
+        </Card>
+        <Card paddingRight={[2, 3, 3, 3]}>
+          <Flex height="fill" align="center" justify="flex-end">
+            {!query && hotKeyIndex < 10 ? (
+              <Hotkeys keys={[String(hotKeyIndex)]} padding={2} />
+            ) : null}
+          </Flex>
+        </Card>
         {/* <Button
           mode={isFavourite ? 'default' : 'bleed'}
           tone={isFavourite ? 'primary' : 'default'}
@@ -71,7 +94,7 @@ export default function WorkspacePreview(props: WorkspacePreviewProps) {
             setFavoriteWorkspace()
           }}
         /> */}
-      </Flex>
+      </Grid>
     </Card>
   )
 }
