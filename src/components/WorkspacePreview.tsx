@@ -1,5 +1,5 @@
-import {Grid, Button, Hotkeys, Stack, Box, Flex, Card, Text} from '@sanity/ui'
 import {DatabaseIcon} from '@sanity/icons'
+import {Box, Button, Card, Flex, Grid, Hotkeys, Stack, Text} from '@sanity/ui'
 import React, {createElement, isValidElement, useMemo} from 'react'
 import {isValidElementType} from 'react-is'
 import {useActiveWorkspace, WorkspaceSummary} from 'sanity'
@@ -50,14 +50,20 @@ export default function WorkspacePreview(props: WorkspacePreviewProps) {
   return (
     <Card borderTop={Boolean(index)} tone="default">
       <Grid columns={5} gap={[2, 3, 4, 4]} paddingY={1}>
-        <Card columnStart={1} columnEnd={3}>
+        <Card columnStart={1} columnEnd={4}>
           <Stack>
-            <Button mode="bleed" tone="default" onClick={() => setActiveWorkspace(name)}>
+            <Button
+              mode="bleed"
+              tone="default"
+              onClick={() => setActiveWorkspace(name)}
+            >
               <Flex align="center" gap={[2, 3, 4, 4]}>
-                {iconComponent ? <MediaCard>{createIcon(iconComponent)}</MediaCard> : null}
+                {iconComponent ? (
+                  <MediaCard>{createIcon(iconComponent)}</MediaCard>
+                ) : null}
                 <Box flex={1}>
                   <Stack space={[1, 2, 3, 3]}>
-                    <Text size={3} weight="semibold">
+                    <Text size={3} weight="semibold" textOverflow="ellipsis">
                       {title || name}
                     </Text>
                     {subtitle ? <Text muted>{subtitle}</Text> : null}
@@ -67,12 +73,12 @@ export default function WorkspacePreview(props: WorkspacePreviewProps) {
             </Button>
           </Stack>
         </Card>
-        <Card columnStart={3} columnEnd={5}>
+        <Card columnStart={4} columnEnd={5}>
           <Flex height="fill" align="center" gap={2}>
             <Text size={1} weight="semibold">
               <DatabaseIcon />
             </Text>
-            <Text size={1} weight="semibold">
+            <Text size={1} weight="semibold" textOverflow="ellipsis">
               {dataset}
             </Text>
           </Flex>
