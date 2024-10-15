@@ -1,8 +1,22 @@
+import {
+  Box,
+  Card,
+  Container,
+  Flex,
+  Heading,
+  Stack,
+  Text,
+  TextInput,
+} from '@sanity/ui'
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react'
 import {useActiveWorkspace, useWorkspaces} from 'sanity'
-import {Box, Text, TextInput, Flex, Container, Stack, Heading, Card} from '@sanity/ui'
-import React, {useRef, useEffect, useState, useMemo, useCallback} from 'react'
+import styled from 'styled-components'
 
 import WorkspacePreview from './WorkspacePreview'
+
+export const TallCard = styled(Card)`
+  min-height: 100%;
+`
 
 export default function WorkspaceHome() {
   const [, ...workspaces] = useWorkspaces()
@@ -51,8 +65,8 @@ export default function WorkspaceHome() {
   }, [query, workspaces, setActiveWorkspace])
 
   return (
-    <Card tone="transparent" height="fill">
-      <Flex direction="column" height="fill" padding={[4, 5, 6, 6]}>
+    <TallCard tone="transparent">
+      <Flex direction="column" padding={[4, 5, 6, 6]}>
         <Container>
           <Stack space={4}>
             <Heading>Workspaces</Heading>
@@ -62,7 +76,11 @@ export default function WorkspaceHome() {
                   <Text size={1} weight="semibold">
                     Search
                   </Text>
-                  <TextInput ref={searchInput} value={query} onChange={handleQuery} />
+                  <TextInput
+                    ref={searchInput}
+                    value={query}
+                    onChange={handleQuery}
+                  />
                 </Stack>
                 <Box>
                   {filteredWorkspaces.map((workspace, index) => (
@@ -79,6 +97,6 @@ export default function WorkspaceHome() {
           </Stack>
         </Container>
       </Flex>
-    </Card>
+    </TallCard>
   )
 }
