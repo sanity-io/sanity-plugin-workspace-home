@@ -1,5 +1,5 @@
-import {Config, definePlugin} from 'sanity'
 import {HomeIcon} from '@sanity/icons'
+import {definePlugin, WorkspaceOptions} from 'sanity'
 
 import {workspaceHomeTool} from './tool'
 
@@ -18,7 +18,7 @@ type WorkspaceHomeConfigProps = {
 export const workspaceHomeConfig = ({
   projectId = ``,
   dataset = ``,
-}: WorkspaceHomeConfigProps): Config => ({
+}: WorkspaceHomeConfigProps): WorkspaceOptions => ({
   name: 'home',
   title: 'Home',
   basePath: '/home',
