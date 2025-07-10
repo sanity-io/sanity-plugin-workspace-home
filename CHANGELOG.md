@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/sanity-io/sanity-plugin-workspace-home/compare/v1.1.1...v1.1.2) (2025-07-10)
+
+### Bug Fixes
+
+- **deps:** allow studio v4 in peer dep ranges ([#9](https://github.com/sanity-io/sanity-plugin-workspace-home/issues/9)) ([ba44b63](https://github.com/sanity-io/sanity-plugin-workspace-home/commit/ba44b63268d94e2c5944fb87b7a34173056e5035))
+
 ## [1.1.1](https://github.com/sanity-io/sanity-plugin-workspace-home/compare/v1.1.0...v1.1.1) (2024-10-15)
 
 ### Bug Fixes
