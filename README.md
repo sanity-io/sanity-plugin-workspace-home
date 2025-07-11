@@ -1,7 +1,5 @@
 # sanity-plugin-workspace-home
 
-> This is a **Sanity Studio v3** plugin.
-
 This plugin adds a "Home" Tool to your Studio with a listing of all available workspaces. Useful as the first page of your Studio to quickly navigate to the workspace of your choice.
 
 ![plugin inside sanity studio showing workspaces](https://user-images.githubusercontent.com/9684022/227136123-ec1908dd-fc60-4832-9079-6f5ed5892923.png)
