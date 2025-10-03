@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/sanity-io/sanity-plugin-workspace-home/compare/v1.1.2...v1.1.3) (2025-10-03)
+
+### Bug Fixes
+
+- use named styled import ([61cc938](https://github.com/sanity-io/sanity-plugin-workspace-home/commit/61cc9383d81e71bb841d1699ffbd34e1a8b271f8))
+
 ## [1.1.2](https://github.com/sanity-io/sanity-plugin-workspace-home/compare/v1.1.1...v1.1.2) (2025-07-10)
 
 ### Bug Fixes
