@@ -10,7 +10,7 @@ import {
 } from '@sanity/ui'
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react'
 import {useActiveWorkspace, useWorkspaces} from 'sanity'
-import styled from 'styled-components'
+import {styled} from 'styled-components'
 
 import WorkspacePreview from './WorkspacePreview'
 

@@ -3,7 +3,7 @@ import {Box, Button, Card, Flex, Grid, Hotkeys, Stack, Text} from '@sanity/ui'
 import React, {createElement, isValidElement, useMemo} from 'react'
 import {isValidElementType} from 'react-is'
 import {useActiveWorkspace, WorkspaceSummary} from 'sanity'
-import styled from 'styled-components'
+import {styled} from 'styled-components'
 
 const createIcon = (icon: React.ComponentType | React.ReactNode) => {
   if (isValidElementType(icon)) return createElement(icon)
